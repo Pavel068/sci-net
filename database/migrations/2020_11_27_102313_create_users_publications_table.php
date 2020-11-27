@@ -15,7 +15,12 @@ class CreateUsersPublicationsTable extends Migration
     {
         Schema::create('users_publications', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('publication_id');
             $table->timestamps();
+
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('publication_id')->references('id')->on('publications');
         });
     }
 

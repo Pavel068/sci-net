@@ -15,6 +15,11 @@ class CreatePublicationsTable extends Migration
     {
         Schema::create('publications', function (Blueprint $table) {
             $table->id();
+            $table->string('name', 512);
+            $table->string('keywords', 512);
+            $table->string('journal');
+            $table->integer('year');
+            $table->string('pages');
             $table->timestamps();
         });
     }
