@@ -47,12 +47,10 @@
 
 <script>
 export default {
-    name: "Index"
+name: "News"
 }
 </script>
 
 <style scoped>
-    .wrapper > *:not(:first-child) {
-        margin-top: 10px;
-    }
+
 </style>
