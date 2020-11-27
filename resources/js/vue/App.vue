@@ -19,9 +19,11 @@
 <script>
 import Sidebar from './components/Sidebar';
 import Header from "./components/Header";
+import common from "./mixins/common";
 
 export default {
     name: "App",
+    mixins: [common],
     components: {Sidebar, Header},
     async mounted() {
 
