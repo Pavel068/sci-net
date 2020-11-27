@@ -4,7 +4,7 @@ export default {
           return process.env.MIX_API_URL;
         },
         isAuth() {
-            return true;
+            return localStorage.getItem('isAuth');
         },
     },
 }

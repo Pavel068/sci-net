@@ -1,6 +1,6 @@
 <template>
     <nav class="sidebar sidebar-offcanvas" id="sidebar">
-        <ul class="nav">
+        <ul class="nav" v-if="isAuth">
             <li class="nav-item">
                 <router-link :to="{name: 'News'}" class="nav-link">
                     <i class="mdi mdi-view-dashboard-outline menu-icon"></i>
@@ -85,8 +85,11 @@
 </template>
 
 <script>
+import common from "../mixins/common";
+
 export default {
-    name: "Sidebar"
+    name: "Sidebar",
+    mixins: [common],
 }
 </script>
 

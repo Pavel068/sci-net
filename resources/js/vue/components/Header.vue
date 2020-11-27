@@ -1,12 +1,12 @@
 <template>
     <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
         <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
-            <a class="navbar-brand brand-logo" href="#">
+            <router-link :to="{name: 'News'}" class="navbar-brand brand-logo">
                 Sci-Net
-            </a>
+            </router-link>
         </div>
-        <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end" v-if="isAuth">
-            <ul class="navbar-nav navbar-nav-right">
+        <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
+            <ul class="navbar-nav navbar-nav-right" v-if="isAuth">
                 <li class="nav-item nav-profile dropdown">
                     <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="profileDropdown">
                         <img src="https://via.placeholder.com/30x30" alt="profile">
