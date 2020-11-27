@@ -1,5 +1,10 @@
 <template>
+    <div class="card">
+        <div class="card-header">Мои проекты</div>
+        <div class="card-body">
 
+        </div>
+    </div>
 </template>
 
 <script>

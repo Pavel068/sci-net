@@ -22,8 +22,17 @@ router.beforeEach((to, from, next) => {
         })
     }
 
+    if (to.name === 'Login') {
+        if (localStorage.getItem('isAuth')) {
+            next({
+                name: 'News',
+                params: {nextUrl: to.fullPath}
+            })
+        }
+    }
+
     if (to.matched.some(record => record.meta.auth)) {
-        if (!localStorage.getItem('is_auth')) {
+        if (!localStorage.getItem('isAuth')) {
             next({
                 name: 'Login',
                 params: {nextUrl: to.fullPath}

@@ -11,7 +11,7 @@
                 <input type="password" class="form-control" id="password" name="password" v-model="password">
             </div>
             <div class="row mt-3">
-                <button class="btn btn-primary">Войти</button>
+                <button class="btn btn-primary" @click="loginRequest">Войти</button>
             </div>
             <div class="row mt-5">
                 Еще нет аккаунта? &nbsp;<router-link :to="{name: 'Register'}">Зарегистрируйтесь!</router-link>
@@ -29,9 +29,10 @@ export default {
             password: null
         }
     },
-    mathods: {
-        async login() {
-
+    methods: {
+        async loginRequest() {
+            localStorage.setItem('isAuth', 1);
+            location.reload();
         }
     }
 }
