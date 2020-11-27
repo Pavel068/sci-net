@@ -22,7 +22,10 @@ import Header from "./components/Header";
 
 export default {
     name: "App",
-    components: {Sidebar, Header}
+    components: {Sidebar, Header},
+    async mounted() {
+
+    }
 }
 </script>
 
