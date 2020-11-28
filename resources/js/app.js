@@ -23,7 +23,7 @@ router.beforeEach((to, from, next) => {
     }
 
     if (to.name === 'Login') {
-        if (localStorage.getItem('isAuth')) {
+        if (localStorage.getItem('authUserId')) {
             next({
                 name: 'News',
                 params: {nextUrl: to.fullPath}
@@ -32,7 +32,7 @@ router.beforeEach((to, from, next) => {
     }
 
     if (to.matched.some(record => record.meta.auth)) {
-        if (!localStorage.getItem('isAuth')) {
+        if (!localStorage.getItem('authUserId')) {
             next({
                 name: 'Login',
                 params: {nextUrl: to.fullPath}

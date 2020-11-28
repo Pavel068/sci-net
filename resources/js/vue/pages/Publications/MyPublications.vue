@@ -7,26 +7,17 @@
                     <th>#</th>
                     <th>Название</th>
                     <th>Журнал</th>
-                    <th>Категория</th>
-                    <th>Соавторы</th>
+                    <th>Индексируется</th>
                     <th></th>
                 </tr>
-                <tr>
-                    <td>1</td>
-                    <td>Название</td>
-                    <td>Журнал</td>
-                    <td>Категория</td>
-                    <td>Соавторы</td>
-                    <td>
-                        <router-link :to="{name: 'EditPublication'}">Редактировать</router-link>
-                    </td>
+                <tr v-if="!publications || !publications.length">
+                    <td colspan="5">Нет публикаций!</td>
                 </tr>
-                <tr>
-                    <td>2</td>
-                    <td>Название</td>
-                    <td>Журнал</td>
-                    <td>Категория</td>
-                    <td>Соавторы</td>
+                <tr v-else v-for="pub in publications">
+                    <td>{{ pub.id }}</td>
+                    <td>{{ pub.name }}</td>
+                    <td>{{ pub.journal }}</td>
+                    <td>{{ pub.indexer }}</td>
                     <td>
                         <router-link :to="{name: 'EditPublication'}">Редактировать</router-link>
                     </td>
@@ -40,8 +31,25 @@
 </template>
 
 <script>
+import common from "../../mixins/common";
+import axios from 'axios';
+
 export default {
-name: "MyPublications"
+    name: "MyPublications",
+    mixins: [common],
+    data() {
+        return {
+            publications: null
+        }
+    },
+    methods: {
+        async getMyPublication() {
+            this.publications = (await axios.get(this.apiUrl + `/api/publications/by_user/${this.authUserId}`)).data;
+        }
+    },
+    async mounted() {
+        await this.getMyPublication();
+    }
 }
 </script>
 

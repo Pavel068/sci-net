@@ -1,6 +1,6 @@
 <template>
     <nav class="sidebar sidebar-offcanvas" id="sidebar">
-        <ul class="nav" v-if="isAuth">
+        <ul class="nav" v-if="authUserId">
             <li class="nav-item">
                 <router-link :to="{name: 'News'}" class="nav-link">
                     <i class="mdi mdi-view-dashboard-outline menu-icon"></i>

@@ -3,8 +3,8 @@ export default {
         apiUrl() {
           return process.env.MIX_API_URL;
         },
-        isAuth() {
-            return localStorage.getItem('isAuth');
+        authUserId() {
+            return localStorage.getItem('authUserId');
         },
     },
 }

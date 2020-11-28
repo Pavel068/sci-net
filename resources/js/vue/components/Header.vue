@@ -6,13 +6,13 @@
             </router-link>
         </div>
         <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
-            <ul class="navbar-nav navbar-nav-right" v-if="isAuth">
+            <ul class="navbar-nav navbar-nav-right" v-if="authUserId">
                 <li class="nav-item dropdown show">
                     <a class="nav-link count-indicator dropdown-toggle" id="notificationDropdown" href="#" data-toggle="dropdown" aria-expanded="true">
                         <i class="mdi mdi-bell-outline mx-0"></i>
                         <span class="count"></span>
                     </a>
-                    <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list show" aria-labelledby="notificationDropdown">
+                    <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="notificationDropdown">
                         <a class="dropdown-item">
                             <p class="mb-0 font-weight-normal float-left">Рекомендации по работе с системой
                             </p>
