@@ -18,3 +18,9 @@ Route::get('/users', [\App\Http\Controllers\UsersController::class, 'index']);
 Route::get('/users/{id}', [\App\Http\Controllers\UsersController::class, 'view']);
 Route::post('/users', [\App\Http\Controllers\UsersController::class, 'create']);
 Route::post('/users/auth', [\App\Http\Controllers\UsersController::class, 'auth']);
+
+Route::get('publications/by_user/{user_id}', [\App\Http\Controllers\PublicationsController::class, 'userPublications']);
+
+Route::get('publications', [\App\Http\Controllers\PublicationsController::class, 'index']);
+Route::get('publications/{id}', [\App\Http\Controllers\PublicationsController::class, 'view']);
+Route::post('publications', [\App\Http\Controllers\PublicationsController::class, 'create']);
