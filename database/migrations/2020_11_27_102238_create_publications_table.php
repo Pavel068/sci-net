@@ -22,6 +22,8 @@ class CreatePublicationsTable extends Migration
             $table->integer('year');
             $table->string('pages');
             $table->timestamps();
+
+            $table->unique(['name', 'journal', 'year']);
         });
     }
 

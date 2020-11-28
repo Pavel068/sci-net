@@ -21,6 +21,8 @@ class CreateUsersPublicationsTable extends Migration
 
             $table->foreign('user_id')->references('id')->on('users');
             $table->foreign('publication_id')->references('id')->on('publications');
+
+            $table->unique(['user_id', 'publication_id']);
         });
     }
 

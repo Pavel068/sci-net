@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Publication;
+use App\Models\User;
+use App\Models\UserPublication;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\DB;
@@ -43,12 +45,33 @@ class PublicationsController extends Controller
 
             $publication->save();
             $publication->refresh();
-
-            return $publication;
         } catch (\Exception $e) {
             return [
                 'error' => 1
             ];
         }
+
+        // Handle authors
+        if ($request->authors) {
+            $authors = explode(', ', $request->authors);
+            foreach ($authors as $author) {
+                $a = explode(' ', $author);
+                $user = DB::table('users')
+                    ->where([
+                        ['last_name', '=', $a[0]],
+                        ['first_name', '=', $a[1]]
+                    ])
+                    ->first();
+
+                if ($user) {
+                    $up = new UserPublication();
+                    $up->user_id = $user->id;
+                    $up->publication_id = $publication->id;
+                    $up->save();
+                }
+            }
+        }
+
+        return $publication;
     }
 }
