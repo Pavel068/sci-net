@@ -7,6 +7,11 @@
                 <input class="form-control" type="text" name="publication_name" id="publication_name" v-model="name">
             </div>
             <div class="row mt-3">
+                <label for="publication_authors">Авторы</label>
+                <input class="form-control" type="text" name="publication_authors" id="publication_authors"
+                       v-model="authors" placeholder="Через запятую">
+            </div>
+            <div class="row mt-3">
                 <label for="publication_keywords">Ключевые слова</label>
                 <input class="form-control" type="text" name="publication_keywords" id="publication_keywords"
                        v-model="keywords" placeholder="Через запятую">
@@ -38,6 +43,7 @@ export default {
     data() {
         return {
             name: null,
+            authors: null,
             keywords: null,
             journal: null,
             year: null,

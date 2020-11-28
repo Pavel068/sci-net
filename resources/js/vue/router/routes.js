@@ -1,6 +1,7 @@
 import News from "../pages/News";
 import Login from "../pages/Login";
 import Logout from "../pages/Logout";
+import Profile from "../pages/Profile/Profile";
 import Register from "../pages/Register";
 import MyTeams from "../pages/Team/MyTeams";
 import FindTeam from "../pages/Team/FindTeam";
@@ -25,6 +26,14 @@ const routes = [
         path: '/logout',
         name: 'Logout',
         component: Logout
+    },
+    {
+        path: '/profile',
+        name: 'Profile',
+        component: Profile,
+        meta: {
+            auth: true
+        }
     },
     {
         path: '/news',

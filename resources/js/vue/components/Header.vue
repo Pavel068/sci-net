@@ -7,6 +7,46 @@
         </div>
         <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
             <ul class="navbar-nav navbar-nav-right" v-if="isAuth">
+                <li class="nav-item dropdown show">
+                    <a class="nav-link count-indicator dropdown-toggle" id="notificationDropdown" href="#" data-toggle="dropdown" aria-expanded="true">
+                        <i class="mdi mdi-bell-outline mx-0"></i>
+                        <span class="count"></span>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list show" aria-labelledby="notificationDropdown">
+                        <a class="dropdown-item">
+                            <p class="mb-0 font-weight-normal float-left">Рекомендации по работе с системой
+                            </p>
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <router-link class="dropdown-item preview-item" :to="{name: 'Profile'}">
+                            <div class="preview-thumbnail">
+                                <div class="preview-icon bg-warning">
+                                    <i class="mdi mdi-settings mx-0"></i>
+                                </div>
+                            </div>
+                            <div class="preview-item-content">
+                                <h6 class="preview-subject font-weight-medium">Профиль</h6>
+                                <p class="font-weight-light small-text mb-0">
+                                    Заполните область научных интересов
+                                </p>
+                            </div>
+                        </router-link>
+                        <div class="dropdown-divider"></div>
+                        <router-link class="dropdown-item preview-item" :to="{name: 'Profile'}">
+                            <div class="preview-thumbnail">
+                                <div class="preview-icon bg-warning">
+                                    <i class="mdi mdi-settings mx-0"></i>
+                                </div>
+                            </div>
+                            <div class="preview-item-content">
+                                <h6 class="preview-subject font-weight-medium">Профиль</h6>
+                                <p class="font-weight-light small-text mb-0">
+                                    Заполните идентификаторы Elibrary и Orcid
+                                </p>
+                            </div>
+                        </router-link>
+                    </div>
+                </li>
                 <li class="nav-item nav-profile dropdown">
                     <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="profileDropdown">
                         <img src="https://via.placeholder.com/30x30" alt="profile">
