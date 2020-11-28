@@ -17,6 +17,7 @@ class CreatePublicationsTable extends Migration
             $table->id();
             $table->string('name', 512);
             $table->string('keywords', 512);
+            $table->string('indexer')->nullable(); // RINC, VAK, SCOPUS, WOS
             $table->string('journal');
             $table->integer('year');
             $table->string('pages');
