@@ -17,6 +17,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/users', [\App\Http\Controllers\UsersController::class, 'index']);
 Route::get('/users/{id}', [\App\Http\Controllers\UsersController::class, 'view']);
 Route::post('/users', [\App\Http\Controllers\UsersController::class, 'create']);
+Route::patch('/users/{id}', [\App\Http\Controllers\UsersController::class, 'update']);
 Route::post('/users/auth', [\App\Http\Controllers\UsersController::class, 'auth']);
 
 Route::get('publications/by_user/{user_id}', [\App\Http\Controllers\PublicationsController::class, 'userPublications']);

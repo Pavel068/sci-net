@@ -66,7 +66,24 @@ class UsersController extends Controller
 
     public function update($id, Request $request)
     {
+        $user = User::find($id);
 
+        if (!$user) {
+            return [
+                'error' => 1
+            ];
+        } else {
+            if ($request->first_name) $user->first_name = $request->first_name;
+            if ($request->last_name) $user->last_name = $request->last_name;
+            if ($request->patronymic) $user->patronymic = $request->patronymic;
+            if ($request->orcid) $user->orcid = $request->orcid;
+            if ($request->elibrary) $user->elibrary = $request->elibrary;
+        }
+
+        $user->save();
+        $user->refresh();
+
+        return $user;
     }
 
     public function destroy($id)
