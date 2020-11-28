@@ -4,19 +4,27 @@
         <div class="card-body">
             <div class="filters">
                 <div class="row">
-                    <div class="col-md-3">
-                        <label for="">Научный интерес</label>
+                    <div class="col-md-2">
+                        <label for="">Название</label>
                         <input type="text" class="form-control">
                     </div>
-                    <div class="col-md-3">
+                    <div class="col-md-2">
+                        <label for="">Интересы</label>
+                        <input type="text" class="form-control">
+                    </div>
+                    <div class="col-md-2">
                         <label for="">Город</label>
                         <input type="text" class="form-control">
                     </div>
-                    <div class="col-md-3">
+                    <div class="col-md-2">
+                        <label for="">ВУЗ</label>
+                        <input type="text" class="form-control">
+                    </div>
+                    <div class="col-md-2">
                         <label for="">Рейтинг</label>
                         <input type="text" class="form-control">
                     </div>
-                    <div class="col-md-3">
+                    <div class="col-md-2">
                         <label for="">Проекты</label>
                         <input type="text" class="form-control">
                     </div>
@@ -37,15 +45,15 @@
                     <th>Рейтинг</th>
                     <th></th>
                 </tr>
-                <tr>
+                <tr v-for="team in teams">
+                    <td>{{team.id}}</td>
+                    <td>{{team.name}}</td>
+                    <td></td>
                     <td>1</td>
-                    <td>ITmb</td>
-                    <td>Тамбовский Государственный Технический Университет</td>
-                    <td>4</td>
-                    <td>3 (1)</td>
-                    <td>123</td>
+                    <td></td>
+                    <td>{{team.rating}}</td>
                     <td>
-                        <router-link :to="{name: 'ViewTeam', params: {team_id: 1}}">Подробнее</router-link>
+                        <router-link :to="{name: 'ViewTeam', params: {team_id: team.id}}">Подробнее</router-link>
                     </td>
                 </tr>
             </table>
@@ -54,8 +62,24 @@
 </template>
 
 <script>
+import common from "../../mixins/common";
+
 export default {
-    name: "FindTeam"
+    name: "FindTeam",
+    mixins: [common],
+    data() {
+        return {
+            teams: null
+        }
+    },
+    methods: {
+        async getTeams() {
+            this.teams = (await axios.get(this.apiUrl + '/api/teams')).data;
+        }
+    },
+    async mounted() {
+        await this.getTeams();
+    }
 }
 </script>
 

@@ -33,12 +33,12 @@
                     </div>
                     <div class="row mt-3">
                         <label for="birthday">Дата рождения</label>
-                        <input class="form-control" type="text" id="birthday" name="birthday"
+                        <input class="form-control" type="date" id="birthday" name="birthday"
                                v-model="user_data.birthday">
                     </div>
                     <div class="row mt-3">
                         <label for="region">Регион</label>
-                        <input class="form-control" type="date" id="region" name="region" v-model="user_data.region">
+                        <input class="form-control" type="text" id="region" name="region" v-model="user_data.region">
                     </div>
                     <div class="row mt-3">
                         <label for="city">Город</label>

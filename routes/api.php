@@ -25,3 +25,7 @@ Route::get('publications/by_user/{user_id}', [\App\Http\Controllers\Publications
 Route::get('publications', [\App\Http\Controllers\PublicationsController::class, 'index']);
 Route::get('publications/{id}', [\App\Http\Controllers\PublicationsController::class, 'view']);
 Route::post('publications', [\App\Http\Controllers\PublicationsController::class, 'create']);
+
+Route::get('teams', [\App\Http\Controllers\TeamsController::class, 'index']);
+Route::get('teams/by_user/{user_id}', [\App\Http\Controllers\TeamsController::class, 'userTeams']);
+Route::post('teams', [\App\Http\Controllers\TeamsController::class, 'create']);

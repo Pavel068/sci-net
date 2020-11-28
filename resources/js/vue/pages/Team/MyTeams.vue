@@ -12,25 +12,48 @@
                     <th>Рейтинг</th>
                     <th></th>
                 </tr>
-                <tr>
-                    <td>1</td>
-                    <td>ITmb</td>
-                    <td>Тамбовский Государственный Технический Университет</td>
-                    <td>4</td>
-                    <td>3 (1)</td>
-                    <td>123</td>
+                <tr v-if="!myTeams || !myTeams.length">
+                    <td colspan="7">У вас нет команд</td>
+                </tr>
+                <tr v-for="team in myTeams">
+                    <td>{{team.id}}</td>
+                    <td>{{team.name}}</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
                     <td>
-                        <router-link :to="{name: 'ViewTeam', params: {team_id: 1}}">Подробнее</router-link>
+                        <router-link :to="{name: 'ViewTeam', params: {team_id: team.id}}">Подробнее</router-link>
                     </td>
                 </tr>
             </table>
+
+            <div class="mt-3">
+                <button class="btn btn-primary">Создать команду</button>
+            </div>
         </div>
     </div>
 </template>
 
 <script>
+import common from "../../mixins/common";
+
 export default {
-    name: "MyTeams"
+    name: "MyTeams",
+    mixins: [common],
+    data() {
+        return {
+            myTeams: null,
+        }
+    },
+    methods: {
+        async getMyTeams() {
+            this.myTeams = (await axios.get(this.apiUrl + `/api/teams/by_user/${this.authUserId}`)).data;
+        }
+    },
+    async mounted() {
+        await this.getMyTeams();
+    }
 }
 </script>
 
