@@ -35,6 +35,9 @@
                 <div class="collapse" id="ui-publishes">
                     <ul class="nav flex-column sub-menu">
                         <li class="nav-item">
+                            <router-link :to="{name: 'Publications'}" class="nav-link">Все публикации</router-link>
+                        </li>
+                        <li class="nav-item">
                             <router-link :to="{name: 'MyPublications'}" class="nav-link">Мои публикации</router-link>
                         </li>
                         <li class="nav-item">

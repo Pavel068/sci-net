@@ -13,7 +13,11 @@ class PublicationsController extends Controller
 {
     public function index()
     {
-        return Publication::all();
+        return DB::table('publications')
+            ->join('users_publications', 'users_publications.publication_id', '=', 'publications.id')
+            ->join('users', 'users.id', '=', 'users_publications.user_id')
+            ->select(['publications.*', 'users.first_name', 'users.last_name'])
+            ->get();
     }
 
     public function view($id)

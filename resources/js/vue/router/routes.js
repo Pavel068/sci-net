@@ -5,6 +5,7 @@ import Profile from "../pages/Profile/Profile";
 import Register from "../pages/Register";
 import MyTeams from "../pages/Team/MyTeams";
 import FindTeam from "../pages/Team/FindTeam";
+import Publications from "../pages/Publications/Publications";
 import MyPublications from "../pages/Publications/MyPublications";
 import AddPublication from "../pages/Publications/AddPublication";
 import FavoritesPublications from "../pages/Publications/FavoritesPublications";
@@ -55,6 +56,14 @@ const routes = [
         path: '/team/find',
         name: 'FindTeam',
         component: FindTeam,
+        meta: {
+            auth: true
+        }
+    },
+    {
+        path: '/publications',
+        name: 'Publications',
+        component: Publications,
         meta: {
             auth: true
         }
